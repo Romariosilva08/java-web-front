@@ -1,0 +1,97 @@
+body {
+    background-size: cover;
+    background-image: linear-gradient(180.61deg,
+            #000000e3 25.16%,
+            #04254fc4 80%,
+            #409ecdcb 100%);
+    padding: 5em;
+    height: 100%;
+    min-height: 100vh;
+    /* Defina a altura como 100vh para ocupar toda a tela */
+}
+
+
+.ficha img {
+    margin: 0 3em 2em 0;
+}
+
+.ficha-descricao {
+    display: flex;
+}
+
+.ficha-descricao div {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.episodios-lista {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+p {
+    font-size: 22px;
+}
+
+select,
+option {
+    font-size: 24px;
+    padding: 0 1em;
+    margin-bottom: 1em;
+}
+
+select {
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    width: 10%;
+}
+
+/* Estilo para o container das estrelas */
+.avaliacao {
+    margin-top: 20px; /* Espaçamento acima das estrelas */
+}
+
+.estrelas {
+    display: flex;
+    gap: 5px; /* Espaçamento entre as estrelas */
+}
+
+.estrela {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc; /* Cor das estrelas não selecionadas */
+    transition: color 0.2s; /* Suaviza a transição de cor */
+}
+
+.estrela:hover,
+.estrela.selecionada {
+    color: #ffcc00; /* Cor das estrelas selecionadas ou ao passar o mouse */
+}
+
+#mensagem-avaliacao {
+    transition: color 0.3s ease;
+}
+
+#mensagem-avaliacao {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+@media screen and (max-width: 900px) {
+
+    .ficha-descricao,
+    .episodios-lista {
+        display: block;
+    }
+}
