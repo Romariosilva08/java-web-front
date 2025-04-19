@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const apiToken = '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';
 const model = 'pierreguillou/gpt2-small-portuguese'; // Modelo GPT-2 em português
 
 app.post('/chatbot', async (req, res) => {
