@@ -40,6 +40,9 @@
             <span class="material-symbols-outlined">
                 account_circle
             </span>
+
+            <button id="toggle-dark-mode" class="material-symbols-outlined">dark_mode</button>
+
         </div>
         
     </header>
@@ -72,6 +75,16 @@
         </section>
         
     </main>
+
+    <div class="chat-bot">
+        <button id="bot-toggle">💬 Falar com o Bot</button>
+        <div id="chat-box" class="chat-box">
+            <div id="chat-messages" class="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem..." />
+            <button id="chat-send">Enviar</button>
+        </div>
+    </div>
+    
     <script src="./scripts/index.js" type="module"></script>
 </body>
 
