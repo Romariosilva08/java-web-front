@@ -77,6 +77,7 @@ function geraSeries() {
     // Faz todas as solicitações em paralelo
     Promise.all(urls.map(url => getDados(url)))
         .then(data => {
+
             console.log(data)
 
             criarListaFilmes(elementos.top5, data[0]);
@@ -90,32 +91,108 @@ function geraSeries() {
         });
 
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggle-dark-mode');
+    const body = document.body;
 
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
 
-// Adicionando evento de clique ao ícone de pesquisa
-const searchIcon = document.querySelector('.cabecalho__opcoes .material-symbols-outlined');
-const searchInput = document.querySelector('#searchInput');
-
-searchIcon.addEventListener('click', () => {
-    searchInput.classList.toggle('hidden');
-    if (!searchInput.classList.contains('hidden')) {
-        searchInput.focus();
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'light_mode';
+            } else {
+                toggleButton.textContent = 'dark_mode';
+            }
+        });
+    } else {
+        console.error('Botão "toggle-dark-mode" não encontrado no DOM.');
     }
 });
 
-// Função de pesquisa
-searchInput.addEventListener('input', (event) => {
-    const termoPesquisa = event.target.value.toLowerCase();
 
-    // Filtra os filmes/séries com base no termo de pesquisa
-    getDados('/series')
-        .then(data => {
-            const resultados = data.filter(filme => 
-                filme.titulo.toLowerCase().includes(termoPesquisa)
-            );
-            criarListaFilmes(elementos.series, resultados);
-        })
-        .catch(error => {
-            lidarComErro("Ocorreu um erro ao carregar os dados da pesquisa.");
-        });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const botToggle = document.getElementById('bot-toggle');
+    const chatBox = document.getElementById('chat-box');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+
+    // Cache para armazenar respostas
+    const responseCache = new Map();
+
+    // Abrir/fechar o chat
+    botToggle.addEventListener('click', () => {
+        chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Enviar mensagem
+    chatSend.addEventListener('click', () => {
+        const userMessage = chatInput.value.trim();
+        if (userMessage) {
+            addMessage(userMessage, 'user');
+            chatInput.value = '';
+            respondToUser(userMessage);
+        }
+    });
+
+    // Adicionar mensagem ao chat
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Responder ao usuário
+    async function respondToUser(userMessage) {
+        try {
+            const botResponse = await getBotResponse(userMessage);
+            addMessage(botResponse, 'bot');
+        } catch (error) {
+            console.error('Erro ao obter resposta do bot:', error);
+            addMessage('Desculpe, ocorreu um erro ao processar sua mensagem.', 'bot');
+        }
+    }
+
+    // Chamar o backend para obter a resposta do chatbot
+    async function getBotResponse(userMessage) {
+        const apiUrl = 'http://localhost:3000/chatbot';
+    
+        if (responseCache.has(userMessage)) {
+            return responseCache.get(userMessage);
+        }
+    
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage })
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Detalhes do erro:', errorData);
+                throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+            }
+    
+            const data = await response.json();
+            console.log('Resposta do backend:', data);
+    
+            if (!data || !data.response) {
+                throw new Error('Resposta da API inválida');
+            }
+    
+            responseCache.set(userMessage, data.response);
+            return data.response;
+        } catch (error) {
+            console.error('Erro ao obter resposta do bot:', error);
+            throw error;
+        }
+    }
 });

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +14,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/detalhes.css">
 
-    <title>Screenmatch</title>
+    <title>CineMatch</title>
 </head>
 
 <body>
@@ -20,8 +22,8 @@
         <div class="ficha-descricao" id="ficha-descricao">
             <!-- As informações serão inseridas aqui -->
         </div>
-        
-          <div class="avaliacao">
+
+        <div class="avaliacao">
             <h3>Avalie este filme/série:</h3>
             <div class="estrelas">
                 <span class="estrela" data-value="1">&#9733;</span>
@@ -45,10 +47,52 @@
             <!-- As informações serão inseridas aqui -->
         </div>
 
-        
+
+        <div class="comentarios">
+            <h3>Comentários</h3>
+            <div class="comentarios-lista" id="comentarios-lista">
+            </div>
+            <div class="comentarios-formulario">
+                <h4>Deixe seu comentário:</h4>
+                <input type="text" id="comentario-nome" placeholder="Insira seu nome" required>
+                <div class="avatar-opcoes">
+                    <label>
+                        <input type="radio" name="avatar" value="foto"> 📷 Foto
+                    </label>
+                    <label>
+                        <input type="radio" name="avatar" value="aleatorio" checked> 🎲 Aleatório
+                    </label>
+                </div>
+                <input type="file" id="avatar-foto" accept="image/*" style="display: none;">
+                <textarea id="comentario-texto" placeholder="Escreva seu comentário aqui..." required></textarea>
+                <button id="enviar-comentario">Enviar</button>
+            </div>
+        </div>
+
+
+
+        <div id="modal-resposta" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar-modal">&times;</span>
+                <h4>Responder ao Comentário</h4>
+                <input type="text" id="resposta-nome" placeholder="Seu nome (opcional)">
+                <div class="avatar-opcoes-resposta">
+                    <label>
+                        <input type="radio" name="avatar-resposta" value="foto"> 📷 Foto
+                    </label>
+                    <label>
+                        <input type="radio" name="avatar-resposta" value="aleatorio" checked> 🎲 Aleatório
+                    </label>
+                </div>
+                <input type="file" id="avatar-foto-resposta" accept="image/*" style="display: none;">
+                <textarea id="resposta-texto" placeholder="Escreva sua resposta..."></textarea>
+                <button id="enviar-resposta">Enviar</button>
+            </div>
+        </div>
 
 
     </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="./scripts/series.js" type="module"></script>
 </body>
