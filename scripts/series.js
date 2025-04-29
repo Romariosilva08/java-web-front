@@ -75,7 +75,7 @@ const Utils = {
             backgroundColor: backgrounds[tipo] || backgrounds.sucesso,
         }).showToast();
     },
-
+    
     /**
      * Lê um arquivo como URL de dados
      * @param {File} file - Arquivo a ser lido
