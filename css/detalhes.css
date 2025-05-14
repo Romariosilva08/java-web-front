@@ -600,7 +600,6 @@ select {
     background-color: #0056b3;
 }
 
-
 .nao-curtida-btn {
     background: none;
     border: none;
@@ -621,10 +620,6 @@ select {
     color: #888;
     margin-right: 10px;
 }
-
-
-
-
 
 /* Animações */
 @keyframes fadeIn {

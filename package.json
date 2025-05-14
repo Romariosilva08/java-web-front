@@ -2,6 +2,19 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "java-web-front": "file:",
     "node-fetch": "^2.7.0"
-  }
+  },
+  "name": "java-web-front",
+  "version": "1.0.0",
+  "description": "![thumbnail-Formação Java](https://github.com/jacqueline-oliveira/3356-java-web-front/assets/66698429/7bd89d79-1385-4f62-adea-d4a27e79f728)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "mock:load": "node scripts/fetchAndSave.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -70,27 +70,47 @@ categoriaSelect.addEventListener('change', function () {
     }
 });
 
-// Array de URLs para as solicitações
-geraSeries();
+geraSeries()
 function geraSeries() {
-    const urls = ['/series/top5', '/series/lancamentos', '/series'];
-    // Faz todas as solicitações em paralelo
-    Promise.all(urls.map(url => getDados(url)))
+    const urls = [
+        '/api/series/top5', 
+        '/api/series/lancamentos', 
+        '/api/series'
+    ];
+
+    // Using Promise.all to fetch data from multiple URLs
+    Promise.all(urls.map(url => getDados(url).catch(e => null))) // Catch individual errors for each URL
         .then(data => {
+            // Check if data is valid before processing
+            if (data[0]) {
+                criarListaFilmes(elementos.top5, data[0]);
+            } else {
+                console.error('Erro ao carregar top5');
+            }
 
-            console.log(data)
+            if (data[1]) {
+                criarListaFilmes(elementos.lancamentos, data[1]);
+            } else {
+                console.error('Erro ao carregar lançamentos');
+            }
 
-            criarListaFilmes(elementos.top5, data[0]);
-            criarListaFilmes(elementos.lancamentos, data[1]);
-            criarListaFilmes(elementos.series, data[2].slice(0, 5));
-            criarListaFilmes(elementos.series, data[2]);
-
+            if (data[2]) {
+                criarListaFilmes(elementos.series, data[2].slice(0, 5)); // Show only first 5 series
+                criarListaFilmes(elementos.todasSeries, data[2]);
+            } else {
+                console.error('Erro ao carregar todas as séries');
+            }
         })
         .catch(error => {
-            lidarComErro("Ocorreu um erro ao carregar os dados.");
+            console.error('Erro geral ao carregar dados:', error);
+            lidarComErro('Ocorreu um erro ao carregar os dados.');
         });
-
 }
+
+
+// Inicia o processo
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('toggle-dark-mode');
     const body = document.body;
