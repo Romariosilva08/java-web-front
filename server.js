@@ -584,29 +584,34 @@ app.get(['/api/series/:id/temporadas/todas', '/series/:id/temporadas/todas'], as
   }
 });
 
-// Rota para obter séries por categoria
+// Rota para obter séries por categoria (genero)
 app.get(['/api/series/categoria/:categoria', '/series/categoria/:categoria'], async (req, res) => {
   try {
-    const { categoria } = req.params;
-    const series = await lerArquivoJson(SERIES_PATH);
-    
-    const seriesFiltradas = series.filter(s => 
-      s.genero && s.genero.toLowerCase() === categoria.toLowerCase());
-    
-    res.json(seriesFiltradas);
+    const categoriaParam = req.params.categoria.toLowerCase();
+
+    const [series, top5, lancamentos] = await Promise.all([
+      lerArquivoJson(SERIES_PATH),
+      lerArquivoJson(TOP5_PATH),
+      lerArquivoJson(LANCAMENTOS_PATH)
+    ]);
+
+    const todasSeries = [...series, ...top5, ...lancamentos];
+
+    const filtradas = todasSeries.filter(s => 
+      s.genero && s.genero.toLowerCase() === categoriaParam
+    );
+
+    res.json(filtradas);
   } catch (error) {
-    console.error('Erro ao filtrar por categoria:', error);
-    res.status(500).json({ error: 'Erro ao filtrar séries' });
+    console.error('Erro ao buscar séries por categoria:', error);
+    res.status(500).json({ error: 'Erro ao buscar séries por categoria' });
   }
 });
+
+
 
 // Middleware para tratar rotas não encontradas
 app.use((req, res) => {
   res.status(404).json({ error: 'Rota não encontrada' });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-  console.log(`Arquivos JSON em: ${DATA_PATH}`);
-  console.log(`Teste o endpoint: http://localhost:${port}/api/series/18`);
-});

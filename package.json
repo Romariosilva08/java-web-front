@@ -3,7 +3,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "java-web-front": "file:",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "vercel": "^41.7.6"
   },
   "name": "java-web-front",
   "version": "1.0.0",

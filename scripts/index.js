@@ -1,10 +1,10 @@
 import getDados from "./getDados.js";
 
-// Mapeia os elementos DOM que você deseja atualizar
 const elementos = {
     top5: document.querySelector('[data-name="top5"]'),
     lancamentos: document.querySelector('[data-name="lancamentos"]'),
-    series: document.querySelector('[data-name="series"]')
+    series: document.querySelector('[data-name="series"]'),
+    todasSeries: document.querySelector('[data-name="todasSeries"]')
 };
 
 // Função para criar a lista de filmes
@@ -39,7 +39,7 @@ function lidarComErro(mensagemErro) {
 }
 
 const categoriaSelect = document.querySelector('[data-categorias]');
-const sectionsParaOcultar = document.querySelectorAll('.section'); // Adicione a classe CSS 'hide-when-filtered' às seções e títulos que deseja ocultar.
+const sectionsParaOcultar = document.querySelectorAll('.section'); 
 
 categoriaSelect.addEventListener('change', function () {
     const categoria = document.querySelector('[data-name="categoria"]');
@@ -60,7 +60,7 @@ categoriaSelect.addEventListener('change', function () {
 
         categoria.classList.remove('hidden')
         // Faça uma solicitação para o endpoint com a categoria selecionada
-        getDados(`/series/categoria/${categoriaSelecionada}`)
+        getDados(`/api/series/categoria/${categoriaSelecionada}`)
             .then(data => {
                 criarListaFilmes(categoria, data);
             })
@@ -95,7 +95,7 @@ function geraSeries() {
             }
 
             if (data[2]) {
-                criarListaFilmes(elementos.series, data[2].slice(0, 5)); // Show only first 5 series
+                criarListaFilmes(elementos.series, data[2].slice(0, 5)); 
                 criarListaFilmes(elementos.todasSeries, data[2]);
             } else {
                 console.error('Erro ao carregar todas as séries');
@@ -106,9 +106,6 @@ function geraSeries() {
             lidarComErro('Ocorreu um erro ao carregar os dados.');
         });
 }
-
-
-// Inicia o processo
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -129,10 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Botão "toggle-dark-mode" não encontrado no DOM.');
     }
 });
-
-
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
