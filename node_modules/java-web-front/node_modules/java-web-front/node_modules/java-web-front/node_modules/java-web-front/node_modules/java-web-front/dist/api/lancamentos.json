@@ -1,0 +1,52 @@
+[
+  {
+    "id": 23,
+    "titulo": "Black Mirror",
+    "totalTemporadas": 7,
+    "avaliacao": 8.7,
+    "genero": "CRIME",
+    "atores": "Wunmi Mosaku, Monica Dolan, Daniel Lapaine",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWY3ZjgwMTctZTZmMS00ZTMwLTkwYWEtNTVkMDgwNjA5ODBiXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Featuring stand-alone dramas -- sharp, suspenseful, satirical tales that explore techno-paranoia -- \"Black Mirror\" is a contemporary reworking of \"The Twilight Zone\" with stories that tap into the collective unease about the moder..."
+  },
+  {
+    "id": 74,
+    "titulo": "Reacher",
+    "totalTemporadas": 3,
+    "avaliacao": 8,
+    "genero": "ACAO",
+    "atores": "Alan Ritchson, Maria Sten, Malcolm Goodwin",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzdjYWZlMDQtYzdhNi00NmRlLTg2NzUtMTI3MWFhZDliNjBiXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Itinerant former military policeman Jack Reacher solves crimes and metes out his own brand of street justice. Based on the novels by Lee Child."
+  },
+  {
+    "id": 82,
+    "titulo": "Cobra Kai",
+    "totalTemporadas": 6,
+    "avaliacao": 8.4,
+    "genero": "ACAO",
+    "atores": "Ralph Macchio, William Zabka, Courtney Henggeler",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYjA3NDkwNzktNjJkYi00ODNhLWFhYzQtYzk5NjU4MDM0OWZmXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Decades after their 1984 All Valley Karate Tournament bout, a middle-aged Daniel LaRusso and Johnny Lawrence find themselves martial-arts rivals again."
+  },
+  {
+    "id": 76,
+    "titulo": "The Boys",
+    "totalTemporadas": 5,
+    "avaliacao": 8.6,
+    "genero": "ACAO",
+    "atores": "Karl Urban, Jack Quaid, Antony Starr",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMWJlN2U5MzItNjU4My00NTM2LWFjOWUtOWFiNjg3ZTMxZDY1XkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "A group of vigilantes set out to take down corrupt superheroes who abuse their superpowers."
+  },
+  {
+    "id": 52,
+    "titulo": "American Horror Story",
+    "totalTemporadas": 13,
+    "avaliacao": 7.9,
+    "genero": "DRAMA",
+    "atores": "Lady Gaga, Kathy Bates, Angela Bassett",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzJjZTg0ZmMtMTg0Ny00NzYxLWFjMWMtMWFiYmNkMTNjZGMyXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "An anthology series centering on different characters and locations, showcasing different aspects of horror."
+  }
+]
