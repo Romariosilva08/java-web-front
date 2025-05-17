@@ -1,7 +1,9 @@
 // URL base da API
 //const baseURL = 'http://localhost:8080';
 
-const baseURL = 'http://localhost:3000';
+// const baseURL = 'http://localhost:3000';
+
+const baseURL = 'https://java-web-front.onrender.com'; // Novo backend online
 
 
 export default function getDados(endpoint) {
