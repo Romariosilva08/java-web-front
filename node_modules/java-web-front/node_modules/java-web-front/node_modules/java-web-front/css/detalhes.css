@@ -1,0 +1,667 @@
+body {
+    background-size: cover;
+    background-image: linear-gradient(180.61deg,
+            #000000e3 25.16%,
+            #04254fc4 80%,
+            #409ecdcb 100%);
+    padding: 5em;
+    height: 100%;
+    min-height: 100vh;
+    /* Defina a altura como 100vh para ocupar toda a tela */
+}
+
+
+.ficha img {
+    margin: 0 3em 2em 0;
+}
+
+.ficha-descricao {
+    display: flex;
+}
+
+.ficha-descricao div {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.episodios-lista {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+p {
+    font-size: 22px;
+}
+
+select,
+option {
+    font-size: 24px;
+    padding: 0 1em;
+    margin-bottom: 1em;
+}
+
+select {
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    width: 10%;
+}
+
+/* Estilo para o container das estrelas */
+.avaliacao {
+    margin-top: 20px; /* Espaçamento acima das estrelas */
+}
+
+.estrelas {
+    display: flex;
+    gap: 5px; /* Espaçamento entre as estrelas */
+}
+
+.estrela {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc; /* Cor das estrelas não selecionadas */
+    transition: color 0.2s; /* Suaviza a transição de cor */
+}
+
+.estrela:hover,
+.estrela.selecionada {
+    color: #ffcc00; /* Cor das estrelas selecionadas ou ao passar o mouse */
+}
+
+#mensagem-avaliacao {
+    transition: color 0.3s ease;
+}
+
+#mensagem-avaliacao {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* Estilos Gerais */
+.comentarios {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Lista de Comentários */
+.comentarios-lista {
+    margin-bottom: 20px;
+}
+
+.comentario {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.comentario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentario-cabecalho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comentario-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+.comentario-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comentario-autor {
+    font-weight: 600;
+    color: #333;
+}
+
+.comentario-data {
+    font-size: 12px;
+    color: #888;
+}
+
+.comentario-conteudo {
+    margin-bottom: 10px;
+}
+
+.comentario-conteudo p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.comentario-acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.curtida-btn,
+.resposta-btn,
+.editar-btn,
+.excluir-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.curtida-btn:hover,
+.resposta-btn:hover,
+.editar-btn:hover,
+.excluir-btn:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.curtida-contador {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Formulário de Comentário */
+.comentarios-formulario {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios-formulario h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#comentario-nome {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#comentario-nome:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+#comentario-nome::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.comentarios-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.comentarios-formulario textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+#enviar-comentario {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#enviar-comentario:hover {
+    background-color: #0056b3;
+}
+
+/* Respostas */
+.respostas {
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.resposta-formulario {
+    margin-top: 10px;
+}
+
+.resposta-formulario textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.resposta-formulario button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resposta-formulario button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos Gerais */
+.comentarios {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Lista de Comentários */
+.comentarios-lista {
+    margin-bottom: 20px;
+}
+
+.comentario {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.comentario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentario-cabecalho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comentario-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.comentario-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comentario-autor {
+    font-weight: 600;
+    color: #333;
+}
+
+.comentario-data {
+    font-size: 12px;
+    color: #888;
+}
+
+.comentario-conteudo {
+    margin-bottom: 10px;
+}
+
+.comentario-conteudo p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.comentario-acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.curtida-btn,
+.resposta-btn,
+.editar-btn,
+.excluir-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.curtida-btn:hover,
+.resposta-btn:hover,
+.editar-btn:hover,
+.excluir-btn:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.curtida-contador {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Formulário de Comentário */
+.comentarios-formulario {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios-formulario h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#comentario-nome {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#comentario-nome:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+#comentario-nome::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.comentarios-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.comentarios-formulario textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+#enviar-comentario {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#enviar-comentario:hover {
+    background-color: #0056b3;
+}
+
+/* Modal de Resposta */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.fechar-modal:hover {
+    color: #000;
+}
+
+.modal-conteudo h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-conteudo #resposta-nome {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-conteudo #resposta-nome:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.modal-conteudo #resposta-nome::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.avatar-opcoes-resposta {
+    margin-bottom: 10px;
+}
+
+.avatar-opcoes-resposta label {
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.avatar-opcoes-resposta input[type="radio"] {
+    margin-right: 5px;
+}
+
+.modal-conteudo textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.modal-conteudo button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-conteudo button:hover {
+    background-color: #0056b3;
+}
+
+.nao-curtida-btn {
+    background: none;
+    border: none;
+    color: #ff4444; 
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.nao-curtida-btn:hover {
+    background-color: rgba(255, 68, 68, 0.1); 
+}
+
+.nao-curtida-contador {
+    font-size: 12px;
+    color: #888;
+    margin-right: 10px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.comentario {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsividade */
+@media screen and (max-width: 900px) {
+    .comentario-acoes {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .comentario-acoes button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .comentarios-formulario {
+        padding: 15px;
+    }
+
+    #comentario-nome,
+    .comentarios-formulario textarea {
+        font-size: 13px;
+    }
+
+    #enviar-comentario {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .ficha-descricao,
+    .episodios-lista {
+        display: block;
+    }
+}
