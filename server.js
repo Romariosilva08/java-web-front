@@ -128,6 +128,14 @@ app.get(['/api/series/categoria/:categoria', '/series/categoria/:categoria'], as
       s.genero && s.genero.toLowerCase() === categoria
     );
 
+    res.json(filtradas); // <-- talvez isso também estivesse faltando
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ erro: 'Erro ao buscar séries por categoria.' });
+  }
+});
+
+
 // Middleware para tratar rotas não encontradas
 app.use((req, res) => {
   res.status(404).json({ error: 'Rota não encontrada' });
@@ -136,5 +144,4 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
   console.log(`Arquivos JSON em: ${DATA_PATH}`);
-  console.log(`Teste o endpoint: http://localhost:${port}/api/series/18`);
 });
