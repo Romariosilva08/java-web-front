@@ -1,0 +1,52 @@
+[
+  {
+    "id": 18,
+    "titulo": "Game of Thrones",
+    "totalTemporadas": 8,
+    "avaliacao": 9.2,
+    "genero": "ACAO",
+    "atores": "Emilia Clarke, Peter Dinklage, Kit Harington",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia."
+  },
+  {
+    "id": 24,
+    "titulo": "Friends",
+    "totalTemporadas": 10,
+    "avaliacao": 8.9,
+    "genero": "COMEDIA",
+    "atores": "Jennifer Aniston, Courteney Cox, Lisa Kudrow",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTU2YmM5ZjctOGVlMC00YTczLTljM2MtYjhlNGI5YWMyZjFkXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Follows the personal and professional lives of six twenty to thirty year-old friends living in the Manhattan borough of New York City."
+  },
+  {
+    "id": 37,
+    "titulo": "It's Always Sunny in Philadelphia",
+    "totalTemporadas": 17,
+    "avaliacao": 8.8,
+    "genero": "COMEDIA",
+    "atores": "Charlie Day, Glenn Howerton, Rob McElhenney",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZTEyY2Q1MmYtNDZmOS00NDM2LWFjZDAtMTU5MmU1MWU3YzNhXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Five friends with big egos and small brains are the proprietors of an Irish pub in Philadelphia."
+  },
+  {
+    "id": 32,
+    "titulo": "Ted Lasso",
+    "totalTemporadas": 3,
+    "avaliacao": 8.8,
+    "genero": "COMEDIA",
+    "atores": "Jason Sudeikis, Hannah Waddingham, Jeremy Swift",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZmI3YWVhM2UtNDZjMC00YTIzLWI2NGUtZWIxODZkZjVmYTg1XkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "American college football coach Ted Lasso heads to London to manage AFC Richmond, a struggling English Premier League soccer team."
+  },
+  {
+    "id": 31,
+    "titulo": "Arrested Development",
+    "totalTemporadas": 5,
+    "avaliacao": 8.7,
+    "genero": "COMEDIA",
+    "atores": "Jason Bateman, Michael Cera, Portia de Rossi",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTk3N2M0MjktMDhkNi00ZGVhLTk4YTUtYjI5MDJmMWUzNTgwXkEyXkFqcGc@._V1_SX300.jpg",
+    "sinopse": "Level-headed son Michael Bluth takes over family affairs after his father is imprisoned. But the rest of his spoiled, dysfunctional family are making his job unbearable."
+  }
+]
