@@ -665,3 +665,88 @@ select {
         display: block;
     }
 }
+
+
+
+/* Ajustes específicos para a seção de comentários */
+.comentario {
+    position: relative;
+    overflow: hidden;
+}
+
+.comentario-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* Agrupar ações relacionadas */
+.acoes-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.acoes-direita {
+    display: flex;
+    gap: 8px;
+}
+
+/* Estilos para telas menores */
+@media screen and (max-width: 768px) {
+    .comentario-cabecalho {
+        align-items: flex-start;
+    }
+
+    .comentario-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .comentario-acoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .acoes-esquerda, .acoes-direita {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .curtida-btn, .nao-curtida-btn,
+    .resposta-btn, .editar-btn, .excluir-btn {
+        flex: 1;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .curtida-contador, .nao-curtida-contador {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .comentario-info {
+        flex-grow: 1;
+    }
+
+    .comentario-acoes {
+        gap: 4px;
+    }
+
+    .acoes-esquerda {
+        order: 2;
+        justify-content: space-around;
+        border-top: 1px solid #eee;
+        padding-top: 8px;
+    }
+
+    .acoes-direita {
+        order: 1;
+        justify-content: space-between;
+    }
+}
